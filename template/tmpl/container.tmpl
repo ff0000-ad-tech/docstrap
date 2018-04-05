@@ -6,7 +6,6 @@
 	<?js if (i === 0 && title !== 'Index'){ ?>
         <?js if (doc.npmpackage){ ?>
             <h1 class="page-title"><?js= doc.npmpackage ?></h1>
-            <h2 class="secondary-page-title"><?js= title ?></h2>
         <?js } else { ?>
             <h1 class="page-title"><?js= title ?></h1>
         <?js } ?>
@@ -18,7 +17,6 @@
 <?js } else { ?>
 	<?js if (doc.npmpackage){ ?>
         <h1 class="page-title"><?js= doc.npmpackage ?></h1>
-        <h2 class="secondary-page-title"><?js= title ?></h2>
     <?js } else { ?>
         <h1 class="page-title"><?js= title ?></h1>
     <?js } ?>
@@ -26,7 +24,7 @@
 
 <header>
     <?js if (!doc.longname || doc.kind !== 'module') { ?>
-        <h2><?js if (doc.ancestors && doc.ancestors.length) { ?>
+        <h2 class="module-name"><?js if (doc.ancestors && doc.ancestors.length) { ?>
             <span class="ancestors"><?js= doc.ancestors.join('') ?></span>
         <?js } ?>
         <?js= doc.name ?>
