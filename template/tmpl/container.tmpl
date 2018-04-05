@@ -4,15 +4,24 @@
 ?>
 <?js if (doc.kind === 'mainpage' || (doc.kind === 'package')) { ?>
 	<?js if (i === 0 && title !== 'Index'){ ?>
-	<h1 class="page-title"><?js= title ?></h1>
+        <?js if (doc.npmpackage){ ?>
+            <h1 class="page-title"><?js= doc.npmpackage ?></h1>
+            <h2 class="secondary-page-title"><?js= title ?></h2>
+        <?js } else { ?>
+            <h1 class="page-title"><?js= title ?></h1>
+        <?js } ?>
 	<?js } ?>
 	<?js= self.partial('mainpage.tmpl', doc) ?>
-
 <?js } else if (doc.kind === 'source') { ?>
 		<h1 class="page-title"><?js= title ?></h1>
     <?js= self.partial('source.tmpl', doc) ?>
 <?js } else { ?>
-	<h1 class="page-title"><?js= title ?></h1>
+	<?js if (doc.npmpackage){ ?>
+        <h1 class="page-title"><?js= doc.npmpackage ?></h1>
+        <h2 class="secondary-page-title"><?js= title ?></h2>
+    <?js } else { ?>
+        <h1 class="page-title"><?js= title ?></h1>
+    <?js } ?>
 <section>
 
 <header>
