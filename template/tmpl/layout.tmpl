@@ -30,7 +30,13 @@
 	</div>
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
-			<?js this.nav.topLevelNav.forEach(function(entry){ ?>
+			<?js this.nav.topLevelNav
+				.filter(function(entry) {
+					// exclude Modules and Global dropdowns
+					return entry.title !== 'Modules' && entry.title !== 'Global'
+				})
+				.forEach(function(entry){	
+			?>
 			<li class="dropdown">
 				<a href="<?js= entry.link ?>" class="dropdown-toggle" data-toggle="dropdown"><?js= entry.title ?><b class="caret"></b></a>
 				<ul class="dropdown-menu <?js= that.navOptions.navType ==='inline' ? 'inline' : '' ?>">
